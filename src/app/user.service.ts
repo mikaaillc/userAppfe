@@ -1,5 +1,5 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { finalize, tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,16 +18,29 @@ export class UserService {
   private snackBar = inject(MatSnackBar);
   private usersState = signal<User[]>([]);
   private loadingState = signal<boolean>(false);
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = '/api/users';
 
   public users = this.usersState.asReadonly();
   public loading = this.loadingState.asReadonly();
 
   private handleError(operation: string) {
-    return (error: any) => {
-      console.error(error);
-      this.snackBar.open(`Failed to ${operation}. Please try again.`, 'Close', { duration: 5000 });
-      return of(error);
+    return (error: HttpErrorResponse) => {
+      let errorMessage = 'An unknown error occurred!';
+      if (error.error instanceof ErrorEvent) {
+        // A client-side or network error occurred.
+        errorMessage = `An error occurred: ${error.error.message}`;
+      } else {
+        // The backend returned an unsuccessful response code.
+        errorMessage = `Server returned code ${error.status}, message is: ${error.message}`;
+      }
+      console.error(
+        `Backend returned code ${error.status}, body was: `,
+        error.error
+      );
+      this.snackBar.open(`Failed to ${operation}. ${errorMessage}`, 'Close', {
+        duration: 5000,
+      });
+      return of();
     };
   }
 

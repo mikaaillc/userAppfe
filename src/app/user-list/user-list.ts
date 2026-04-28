@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { UserService } from '../user.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @Component({
   selector: 'app-user-list',
@@ -17,6 +19,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatIconModule,
     RouterModule,
     MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   templateUrl: './user-list.html',
   styleUrls: ['./user-list.css'],

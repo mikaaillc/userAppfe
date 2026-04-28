@@ -1,22 +1,26 @@
-# Proje Özeti: Kullanıcı Yönetimi Uygulaması
+# User Management Application
 
-Bu proje, Angular'ın en son özelliklerini kullanarak modern, reaktif ve görsel olarak çekici bir kullanıcı yönetimi uygulaması oluşturmayı amaçlamaktadır. Uygulama, kullanıcıları listelemek, eklemek, düzenlemek ve silmek için temel CRUD işlevlerini içerir.
+## Overview
 
-## Uygulanan Özellikler (Aşama 1 & 2)
+This is a user management application built with Angular. It allows users to sign up, log in, and manage a list of users. The application is built with modern Angular features, including standalone components, signals, and the new control flow syntax.
 
-- **Standalone Mimarisi:** Tüm bileşenler, modül ihtiyacını ortadan kaldıran `standalone` olarak oluşturulmuştur.
-- **Sinyal Tabanlı Durum Yönetimi:** Bileşen durumu, Angular'ın modern sinyalleri (`signal`) kullanılarak yönetilmektedir.
-- **OnPush Değişiklik Algılama:** Performansı optimize etmek için tüm bileşenlerde `ChangeDetectionStrategy.OnPush` kullanılmaktadır.
-- **Modern Kontrol Akışı:** Şablonlarda `@if` ve `@for` gibi yerleşik kontrol akışı sözdizimi kullanılmaktadır.
-- **Angular Material Entegrasyonu:** Kullanıcı arayüzü, `MatTable`, `MatButton`, `MatFormField` gibi Angular Material bileşenleriyle oluşturulmuştur.
-- **Kullanıcı Listesi:** `UserListComponent`, mevcut tüm kullanıcıları bir tabloda görüntüler.
-- **Kullanıcı Formu:** `UserFormComponent`, reaktif formlar kullanarak yeni kullanıcılar oluşturmak ve mevcut olanları düzenlemek için bir arayüz sağlar.
-- **Servis Katmanı:** `UserService`, kullanıcı verilerini yönetmek ve sahte bir API ile etkileşim kurmak için kullanılır.
-- **Yönlendirme:** `app.routes.ts` içinde kullanıcı listesi ve form sayfaları için rotalar yapılandırılmıştır.
+## Features
 
-## Mevcut Aşama Planı (Aşama 3): UI/UX İyileştirmesi
+*   User signup and login
+*   Protected routes for user management
+*   Create, Read, Update, and Delete (CRUD) operations for users
+*   A responsive and modern user interface using Angular Material
 
-1.  **Global Stil İyileştirmeleri:** Uygulama genelinde modern bir koyu tema ve tipografi tanımlanacaktır.
-2.  **Ana Başlık (Header) Bileşeni Oluşturma:** Uygulama için yeniden kullanılabilir bir başlık bileşeni eklenecektir.
-3.  **Bileşen Stillerini İyileştirme:** Mevcut bileşenlerin stilleri, yeni tasarımla uyumlu olacak şekilde güncellenecektir.
-4.  **Animasyonlar Ekleme:** Kullanıcı deneyimini zenginleştirmek için sayfa geçişlerine ve öğe girişlerine animasyonlar eklenecektir.
+## Design
+
+*   **Styling:** Modern, clean design with a focus on user experience, leveraging Angular Material components.
+*   **Layout:** Responsive layout that works on both desktop and mobile devices.
+*   **Components:** The application is built with a modular component architecture.
+
+## Current Plan
+
+1.  **Install Angular Material:** Add the `@angular/material` library to the project.
+2.  **Update `blueprint.md`:** Update the project's `blueprint.md` to reflect the new plan.
+3.  **Integrate Material Components:** Refactor the existing components (`login`, `signup`, `user-list`, `user-form`, and `header`) to use Angular Material components like `MatCard`, `MatFormField`, `MatInput`, `MatButton`, and `MatTable`.
+4.  **Apply a Theme:** Apply a pre-built Angular Material theme to ensure a consistent and attractive color scheme and typography throughout the application.
+5.  **Build and Verify:** Build the application to ensure all the changes are implemented correctly and there are no compilation errors.
